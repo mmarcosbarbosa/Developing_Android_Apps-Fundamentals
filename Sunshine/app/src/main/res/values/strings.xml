@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Sunshine</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="today">Today, June 24</string>
+    <string name="max_degree">21°</string>
+    <string name="min_degree">8°</string>
+    <string name="wheater_now">Cloudy</string>
+    <string name="testing">Today - Sunny - 88/63</string>
+    <string name="refresh">Refresh</string>
+    <string name="map_location">Map Location</string>
+    <string name="sharing">Share</string>
+    <string name="title_activity_detail">Details</string>
+    <string name="title_settings_activity">Settings</string>
+    <string name="pref_location_label">Location</string>
+    <string name="pref_location_key" translatable="false">location</string>
+    <string name="pref_location_default" translatable="false">29090</string>
+    <string name="pref_temperature_units_label">Temperature Units</string>
+    <string name="pref_temperature_units_key" translatable="false">temperatureUnits</string>
+    <string name="pref_temperature_default" translatable="false">metric</string>
+    <string name="pref_temperature_metric" translatable="false">metric</string>
+    <string name="pref_temperature_imperial" translatable="false">imperial</string>
+    <string name="pref_lat_label">Latitude</string>
+    <string name="pref_lat_key" translatable="false">lat</string>
+    <string name="pref_lat_default" translatable="false">-20.263568</string>
+    <string name="pref_lon_label">Longitude</string>
+    <string name="pref_lon_key" translatable="false">lon</string>
+    <string name="pref_lon_default" translatable="false">-40.261137</string>
+</resources>
