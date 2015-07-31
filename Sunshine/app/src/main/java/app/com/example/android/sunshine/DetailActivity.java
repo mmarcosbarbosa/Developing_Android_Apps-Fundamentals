@@ -25,7 +25,7 @@ public class DetailActivity extends ActionBarActivity {
         setContentView(R.layout.activity_detail);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
+                    .add(R.id.container, new DetailFragment())
                     .commit();
         }
 
@@ -59,11 +59,13 @@ public class DetailActivity extends ActionBarActivity {
     /**
      * A placeholder fragment containing a simple view.
      */
-    public static class PlaceholderFragment extends Fragment {
+    public static class DetailFragment extends Fragment {
 
-        private String forecast;
+        private String mForecast;
+        private static final String LOG_TAG = DetailFragment.class.getSimpleName();
+        private static final String FORECAST_SHARE_HASHTAG = "#SunshieApp";
 
-        public PlaceholderFragment() {
+        public DetailFragment() {
             setHasOptionsMenu(true);
         }
 
@@ -78,18 +80,18 @@ public class DetailActivity extends ActionBarActivity {
 
             if ( (intent != null) && (intent.hasExtra(Intent.EXTRA_TEXT))) {
                 // Pegando a informação (texto) que veio com o Intent
-                forecast = intent.getStringExtra(Intent.EXTRA_TEXT);
+                mForecast = intent.getStringExtra(Intent.EXTRA_TEXT);
 
                 // Colocando a mensagem no text_view
                 TextView detailTextView = (TextView) rootView.findViewById(R.id.text_fragment_detail);
-                detailTextView.setText(forecast);
+                detailTextView.setText(mForecast);
 
             }
             return rootView;
         }
 
-        //@Override
-        public void onCreateOptions(Menu menu, MenuInflater inflater) {
+        @Override
+        public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 
             inflater.inflate(R.menu.detail_fragment,menu);
 
@@ -109,7 +111,7 @@ public class DetailActivity extends ActionBarActivity {
             Intent shareIntent = new Intent(Intent.ACTION_SEND);
             shareIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
             shareIntent.setType("text/plain");
-            shareIntent.putExtra(Intent.EXTRA_TEXT, forecast + "#Sunshine");
+            shareIntent.putExtra(Intent.EXTRA_TEXT, mForecast + " " + FORECAST_SHARE_HASHTAG);
 
             return shareIntent;
 
