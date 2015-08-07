@@ -63,7 +63,7 @@ public class DetailActivity extends ActionBarActivity {
 
         private String mForecast;
         private static final String LOG_TAG = DetailFragment.class.getSimpleName();
-        private static final String FORECAST_SHARE_HASHTAG = "#SunshieApp";
+        private static final String FORECAST_SHARE_HASHTAG = "#SunshineApp";
 
         public DetailFragment() {
             setHasOptionsMenu(true);
