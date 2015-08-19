@@ -60,6 +60,15 @@ public class WeatherContract {
         done for WeatherEntry)
      */
     public static final class LocationEntry implements BaseColumns {
+        // Codigo adicionado na licao 4B
+        public static final Uri CONTENT_URI =
+                BASE_CONTENT_URI.buildUpon().appendPath(PATH_LOCATION).build();
+
+        public static final String CONTENT_TYPE =
+                ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_LOCATION;
+        public static final String CONTENT_ITEM_TYPE =
+                ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_LOCATION;
+
         public static final String TABLE_NAME = "location";
 
         // Coluna para salvar a configuracao da localizacao (Location Settings)
@@ -74,15 +83,7 @@ public class WeatherContract {
         // Coluna para salvar a coordenada de longetude (coordinate longetude)
         public static final String COLUMN_COORD_LONG = "coord_long";
 
-        // Codigo adicionado na licao 4B
-        public static final Uri CONTENT_URI =
-                BASE_CONTENT_URI.buildUpon().appendPath(PATH_LOCATION).build();
-
-        public static final String CONTENT_TYPE =
-                ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_LOCATION;
-        public static final String CONTENT_ITEM_TYPE =
-                ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_LOCATION;
-
+        // Tambem adicionado na Licao 4B
         public static Uri buildLocationUri(long id) {
             return ContentUris.withAppendedId(CONTENT_URI, id);
         }
@@ -91,23 +92,16 @@ public class WeatherContract {
 
     /* Inner class that defines the table contents of the weather table */
     public static final class WeatherEntry implements BaseColumns {
-        // The "Content authority" is a name for the entire content provider, similar to the
-        // relationship between a domain name and its website.  A convenient string to use for the
-        // content authority is the package name for the app, which is guaranteed to be unique on the
-        // device.
-        public static final String CONTENT_AUTHORITY = "app.com.example.android.sunshine";
 
-        // Use CONTENT_AUTHORITY to create the base of all URI's which apps will use to contact
-        // the content provider.
-        public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
+        // Novo codigo adicionado na licao 4B
+        public static final Uri CONTENT_URI =
+                BASE_CONTENT_URI.buildUpon().appendPath(PATH_WEATHER).build();
 
-        // Possible paths (appended to base content URI for possible URI's)
-        // For instance, content://com.example.android.sunshine.app/weather/ is a valid path for
-        // looking at weather data. content://com.example.android.sunshine.app/givemeroot/ will fail,
-        // as the ContentProvider hasn't been given any information on what to do with "givemeroot".
-        // At least, let's hope not.  Don't be that dev, reader.  Don't be that dev.
-        public static final String PATH_WEATHER = "weather";
-        public static final String PATH_LOCATION = "location";
+        public static final String CONTENT_TYPE =
+                ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_WEATHER;
+        public static final String CONTENT_ITEM_TYPE =
+                ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_WEATHER;
+
         public static final String TABLE_NAME = "weather";
 
         // Column with the foreign key into the location table.
@@ -137,16 +131,7 @@ public class WeatherContract {
         // Degrees are meteorological degrees (e.g, 0 is north, 180 is south).  Stored as floats.
         public static final String COLUMN_DEGREES = "degrees";
 
-        // Novo codigo adicionado na licao 4B
-        public static final Uri CONTENT_URI =
-                BASE_CONTENT_URI.buildUpon().appendPath(PATH_WEATHER).build();
-
-        public static final String CONTENT_TYPE =
-                ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_WEATHER;
-        public static final String CONTENT_ITEM_TYPE =
-                ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_WEATHER;
-
-
+        // Tambem adicionado na Licao 4B
         public static Uri buildWeatherUri(long id) {
             return ContentUris.withAppendedId(CONTENT_URI, id);
         }
