@@ -7,6 +7,8 @@
     <provider
         android:authorities = "app.com.example.android.sunshine"
         android:name = ".data.WeatherProvider"
+        android:enabled = "true"
+        android:exported="true"
     />
 
     <application
