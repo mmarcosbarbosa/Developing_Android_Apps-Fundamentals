@@ -12,4 +12,5 @@
     <item name="darkorange" type="color">#FFFF8800</item>
     <item name="darkred" type="color">#FFCC0000</item>
     <item name="logo_indigo" type="color">#3F50B4</item>
+    <item name="white" type="color">#FFFFFF</item>
 </resources>
